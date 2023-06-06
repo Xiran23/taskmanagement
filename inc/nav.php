@@ -14,10 +14,9 @@
           </li>
           <!-- creating TASKS -->
           <li>
-            <a href="createtask.php" onclick="Opensection('main-update')">
+            <a href="#" onclick="createTask()">
               <img
                 class="dashlogo"
-                onclick="Opensection('main-update')"
                 src="images/icon/update.png"
                 alt=""
               />
@@ -27,10 +26,10 @@
 
            <!-- view TASKS -->
            <li>
-            <a href="viewtask.php" onclick="Opensection('main-update')">
+            <a href="#" onclick="viewTask()">
               <img
                 class="dashlogo"
-                onclick="Opensection('main-update')"
+           
                 src="images/icon/update.png"
                 alt=""
               />
@@ -38,7 +37,7 @@
             </a>
           </li>
 
-          <li>
+          <!-- <li>
             <a href="#" onclick="Opensection('main-update')">
               <img
                 class="dashlogo"
@@ -62,13 +61,13 @@
               <img class="dashlogo" src="images/icon/leave.png" alt="" />
               <span class="nav-item">APPLY LEAVE</span>
             </a>
-          </li>
+          </li> -->
 
-          <li>
+          <!-- <li>
             <a href="#" class="logout">
               <img class="dashlogo" src="images/icon/logout.png" alt="" />
               <span class="nav-item">Logout</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>

@@ -11,7 +11,7 @@ $result = mysqli_query($conn,$query);
 $tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 //  print_r($tasks);
 mysqli_free_result($result);
-mysqli_close($conn);
+
 
 ?>
 
