@@ -1,52 +1,61 @@
 <?php
 include('config/db.php');
+session_start();
   $invalidpassword = '' ;
   $invaliduser     = ''  ;
+if(!isset($_SESSION['username'])){
 
-
-if (isset($_POST['submit'])) 
-{
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-
-  $query = "SELECT * FROM users WHERE username = '$username'";  
-
-  $result = mysqli_query($conn, $query);
-  $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
- 
- 
   
-  
-  
-  if ($user) {
-    if ($password == $user['PASSWORD']) {
-      //getting user role 
-      $role = $user['role'];
-      if ($role == 1) {
-      
-        
-           header("Location:dashboard.php");
-        
-      } else if ($role == 2) {
-        echo "staff";
-      } else {
-        echo "Manager";
+  if (isset($_POST['submit'])) 
+  {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $_SESSION['username']=$username;
+    $_SESSION['password']=$pass; 
+    
+    
+    $query = "SELECT * FROM users WHERE username = '$username'";  
+    
+    $result = mysqli_query($conn, $query);
+    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
+    
+    
+    
+    
+    if ($user) {
+      if ($password == $user['password']) {
+        //getting user role 
+        $role = $user['role'];
+        if ($role == 1) {
+          
+          
+          header("Location:dashboard.php");
+          
+        } else if ($role == 2) {
+          echo "staff";
+        } else {
+          echo "Manager";
+        }
       }
+      // echo 'password doesnot match';
+      $invalidpassword = 'invalid password' ;
+      
+      // echo $wrong_passowrd;
+    } else {
+      // echo "user doesnot match";
+      $invaliduser     = 'invalid user'  ;
+      
     }
-    // echo 'password doesnot match';
-    $invalidpassword = 'invalid password' ;
- 
-    // echo $wrong_passowrd;
-  } else {
-    // echo "user doesnot match";
-    $invaliduser     = 'invalid user'  ;
-
   }
+  
+  
+}else{
+  header("Location:dashboard.php");
+
 }
 
-
-?>
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 

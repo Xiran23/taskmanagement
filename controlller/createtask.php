@@ -48,21 +48,7 @@
  <?php
     
 
-    class Task
-    {
-        private $title;
-        private $descritption;
-        private $due_date;
-        private $employee_id;
-
-        public function __construct($title, $descritption, $due_date, $employee_id)
-        {
-            $this->title = $title;
-            $this->descritption = $descritption;
-            $this->due_date  = $due_date;
-            $this->employee_id = $employee_id;
-        }
-    }
+   
 
     if (isset($_POST['submit'])) {
         echo "hey";
@@ -72,7 +58,7 @@
         $due_date     = $_POST['tduedate'];
         $employee_id  = $_POST['empid'];
         //creating object 
-        $task = new Task($title, $description, $due_date, $employee_id);
+   
 
         $query = "INSERT INTO tasks (title, description, due_date, emp_id) VALUES 
               ('$title','$description', '$due_date','$employee_id')";

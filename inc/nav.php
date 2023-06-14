@@ -1,3 +1,23 @@
+<?php 
+// session_start();//alerady in header.php
+if(isset($_SESSION['username'])){
+  $use = $_SESSION['username'];
+
+  // echo "<script> alert('value is set: $use') </script>";
+  
+}
+else{
+  echo "<script> location.href='login.php'; </script>";
+
+}
+if(isset($_POST['logout'])){
+  session_unset();
+  session_destroy();
+  echo "<script> location.href='login.php'; </script>";
+}
+
+?>
+
 <nav>
         <ul>
           <li>
@@ -6,6 +26,7 @@
               <span class="ADMIN">ADMIN</span>
             </a>
           </li>
+          
           <li>
             <a href="#" onclick="Opensection('main-dashboard')">
               <img class="dashlogo" src="images/icon/dashboard.png" alt="" />
@@ -37,6 +58,18 @@
             </a>
           </li>
 
+          <li>
+            <a href="adduser.php" onclick="">
+              <img
+                class="dashlogo"
+           
+                src="images/icon/update.png"
+                alt=""
+              />
+              <span class="nav-item">ADD-Users</span>
+            </a>
+          </li>
+
           <!-- <li>
             <a href="#" onclick="Opensection('main-update')">
               <img
@@ -63,11 +96,14 @@
             </a>
           </li> -->
 
-          <!-- <li>
+          <li>
+            <form method="POST">
+              <input type="submit" value="logout" name="logout">
+            </form>
             <a href="#" class="logout">
               <img class="dashlogo" src="images/icon/logout.png" alt="" />
               <span class="nav-item">Logout</span>
             </a>
-          </li> -->
+          </li>
         </ul>
       </nav>

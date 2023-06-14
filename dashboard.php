@@ -1,4 +1,7 @@
-<?php include('config/db.php'); ?>
+<?php include('config/db.php'); 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +18,10 @@
     
     
     <div class="container">
-      <?php  include('inc/nav.php');?>
+      <?php 
+      include('inc/header.php');
+      include('inc/nav.php');
+      ?>
       
       
       

@@ -17,6 +17,15 @@ body {
 
 /* ******************************side NAVBARR******************* */
 
+header{
+  /* display: none; */
+  background: #0d47a1;
+  position: fixed;
+  
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
 nav {
   position: sticky;
   top: 0;
@@ -97,6 +106,11 @@ a:hover {
   display: flex;
 }
 
+.Section{
+  border: 1px solid;
+  width: 50%;
+  margin: auto;
+}
 #main-dashboard {
   position: relative;
   padding: 20px;
@@ -293,13 +307,13 @@ h1 {
   text-align: center;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
+
+
 
 label {
   display: block;
   font-weight: bold;
+ width: 100%;
 }
 
 input[type="text"],
@@ -309,7 +323,20 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
 input[type="date"] {
   width: 100%;
   padding: 10px;
@@ -328,5 +355,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #45a049;
-} */
+} 
+
+
 /* ************************************************************ */

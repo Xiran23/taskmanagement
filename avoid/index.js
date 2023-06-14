@@ -19,18 +19,18 @@
 // }
 
 //submit button id of create task form
-$('#submit').on("click",function(e){
+// $('#submit').on("click",function(e){
   
-  console.log("print");
-    e.preventDefault()
+//   console.log("print");
+//     e.preventDefault()
   
   
   
-  })
-  $('h1').on("click",function(){
-    console.log("d")
-  })
+//   })
+//   $('h1').on("click",function(){
+//     console.log("d")
+//   })
 
-  $('p').on("click",function(){
-    console.log("d")
-  })
+//   $('p').on("click",function(){
+//     console.log("d")
+//   })
