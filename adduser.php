@@ -1,95 +1,5 @@
 <?php include('config/db.php'); ?>
 
-<?php
-if($_SERVER['REQUEST_METHOD']=='POST'){
-  $error = []; 
- 
-  $fname = $_POST['fname'];
-  $lastname = $_POST['lastname'];
-  $username = $_POST['username'];
-  $email = $_POST['email'];
-  $role  = $_POST['role'];
-  $password = $_POST['password'];
-  $rpassword = $_POST['rpassword'];
-  $phonenumber = $_POST['pnumber'];
-
-  //validate the first name 
-
-// Validate first name
-if (empty($fname)) {
-  $errors['fname'] = 'Please fill in the first name field.';
-} elseif (!preg_match('/^[a-zA-Z]+$/', $fname)) {
-  $errors['fname'] = 'Only characters are allowed in the first name.';
-} elseif (strlen($fname) < 2 || strlen($fname) > 20) {
-  $errors['fname'] = 'First name should be between 2 and 20 characters.';
-}
-
-// Validate last name
-if (empty($lastname)) {
-  $errors['lastname'] = 'Please fill in the last name field.';
-}
-
-// Validate username
-if (empty($username)) {
-  $errors['username'] = 'Please fill in the username field.';
-}
-
-// Validate email
-if (empty($email)) {
-  $errors['email'] = 'Please fill in the email field.';
-} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $errors['email'] = 'Invalid email format.';
-}
-
-// Validate password
-if (empty($password)) {
-  $errors['password'] = 'Please fill in the password field.';
-} elseif (strlen($password) < 6 || strlen($password) > 20) {
-  $errors['password'] = 'Password should be between 6 and 20 characters.';
-}
-
-// Validate retype password
-if (empty($rpassword)) {
-  $errors['rpassword'] = 'Please fill in the retype password field.';
-} elseif ($password !== $rpassword) {
-  $errors['rpassword'] = 'Passwords do not match.';
-}
-
-// Validate phone number
-if (empty($phonenumber)) {
-  $errors['pnumber'] = 'Please fill in the phone number field.';
-} elseif (!preg_match('/^[0-9]{10}$/', $phonenumber)) {
-  $errors['pnumber'] = 'Phone number should be 10 digits.';
-}
-
-// If there are no validation errors, proceed with further processing
-if (empty($errors)) {
-
- $query = "INSERT INTO users (firstname, lastname,username, email, role, password, phonenumber) VALUES 
-           ('$fname','$lastname','$username','$email','$role','$password','$phonenumber')";
-
-           if(mysqli_query($conn,$query)){
-
-             echo 'Form submitted successfully!';
-           }
-           else{
-            echo "error";
-           }
-
-
-  
-
-
-} else {
-  // If there are validation errors, display them to the user
-  foreach ($errors as $error) {
-      echo $error . '<br>';
-  }
-}
-
-}
-
-?>
 
 
 <!DOCTYPE html>
@@ -109,15 +19,19 @@ if (empty($errors)) {
 <body>
 
 
+  <?php
+  include('inc/header.php');
+  include('inc/nav.php');
+  
+  ?>
+  
   <div class="container">
-    <?php include('inc/nav.php'); ?>
-
-
 
     <div class="Section">
+       
       <!-- ******************************** -->
 
-      <div id="register-form">
+      <div class="register-form">
 
 
 
@@ -190,47 +104,11 @@ if (empty($errors)) {
         </form>
 
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <!-- ******************************** -->
-
-
-
-
       <!-- ************************************************************************************************************************************************************* -->
 
-
-
-
-
-
     </div>
+  </div>
 
 </body>
 
@@ -354,3 +232,82 @@ if (empty($errors)) {
 <!-- Initialize Swiper -->
 
 </html>
+  <?php
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $error = [];
+  
+    $fname = $_POST['fname'];
+    $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $role  = $_POST['role'];
+    $password = $_POST['password'];
+    $rpassword = $_POST['rpassword'];
+    $phonenumber = $_POST['pnumber'];
+  
+    //validate the first name 
+  
+    // Validate first name
+    if (empty($fname)) {
+      
+    }
+  
+    // Validate last name
+    if (empty($lastname)) {
+      $errors['lastname'] = 'Please fill in the last name field.';
+    }
+  
+    // Validate username
+    if (empty($username)) {
+      $errors['username'] = 'Please fill in the username field.';
+    }
+  
+    // Validate email
+    if (empty($email)) {
+      $errors['email'] = 'Please fill in the email field.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errors['email'] = 'Invalid email format.';
+    }
+  
+    // Validate password
+    if (empty($password)) {
+      $errors['password'] = 'Please fill in the password field.';
+    } elseif (strlen($password) < 6 || strlen($password) > 20) {
+      $errors['password'] = 'Password should be between 6 and 20 characters.';
+    }
+  
+    // Validate retype password
+    if (empty($rpassword)) {
+      $errors['rpassword'] = 'Please fill in the retype password field.';
+    } elseif ($password !== $rpassword) {
+      $errors['rpassword'] = 'Passwords do not match.';
+    }
+  
+    // Validate phone number
+    if (empty($phonenumber)) {
+      $errors['pnumber'] = 'Please fill in the phone number field.';
+    } elseif (!preg_match('/^[0-9]{10}$/', $phonenumber)) {
+      $errors['pnumber'] = 'Phone number should be 10 digits.';
+    }
+  
+    // If there are no validation errors, proceed with further processing
+    if (empty($errors)) {
+  
+      $query = "INSERT INTO users (firstname, lastname,username, email, role, password, phonenumber) VALUES 
+             ('$fname','$lastname','$username','$email','$role','$password','$phonenumber')";
+  
+      if (mysqli_query($conn, $query)) {
+  
+        echo 'Form submitted successfully!';
+      } else {
+        echo "error";
+      }
+    } else {
+      // If there are validation errors, display them to the user
+      foreach ($errors as $error) {
+        echo $error . '<br>';
+      }
+    }
+  }
+  
+  ?>

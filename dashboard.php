@@ -17,11 +17,11 @@
   <body>
     
     
-    <div class="container">
       <?php 
       include('inc/header.php');
       include('inc/nav.php');
       ?>
+    <div class="container">
       
       
       

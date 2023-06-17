@@ -14,49 +14,78 @@ mysqli_free_result($result);
 
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styledash.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
 
-
-
-<?php 
-include('inc/header.php');
- ?>
-<title>View Task</title>
+    <title>Dashbord</title>
   </head>
   <body>
-    <!-- **************************************************** -->
-  <div class="container">
 
-<?php 
-      include('inc/nav.php'); 
+
+    
+    <?php 
+      include('inc/header.php');
       ?>
-<!-- ******************************************** -->
-<div>
-    <h1> Creating TASKS</h1>
- 
-    <?php foreach($tasks  as $task ): ?>
-
+    <div class="container">
+      
+      
+      
+      
+      <div class="Section">
+        <!-- ******************************** -->
         
-        <div >
-            <h3><?php echo $task['title']; ?></h3>
-                
-                <?php echo $task['task_id'] ?>
+        
+    <h1 style="text-align: center;"> TASKS LIST</h1>
+ 
+    
+    
+    <!-- ******************************** -->
+    <?php foreach($tasks  as $task ): ?>
+    <section class="tasks">
 
-                <h1>Description</h1>
-                <?php echo $task['description']; ?>
+          <div class="t-card">
 
-                <h4>SUBMITTION DATE</h4>
-                <?php echo $task['due_date']; ?>
-
-                <button>UPDATE</button>
-                
-                <button>DELETE</button>
-        </div>
-
-
+            <h2 class="task-no"><?php echo $task['title'];?></h2>
+            <div class="text-button">
+              <p class="t-description">
+              <?php echo $task['description']; ?>
+              </p>
+              <button class="button-small">Edit</button>
+              <button class="button-small">Update</button>
+              <button class="button-small">Delete</button>
+            </div>
+          </div>
+         </section>
+         <?php endforeach; ?>
+  
+        
+        
 </div>
-<?php endforeach; ?>
-</div>
 
-<?php 
-include('inc/footer.php');
-    ?>
+<!-- ************************************************************************************************************************************************************* -->
+
+
+
+
+
+
+
+
+</body>
+
+<!-- Swiper JS -->
+
+<script src="swiper/swiper-bundle.min.js"></script>
+<script src="js/jquery-3.7.0.min.js"></script>
+<script src="js/index.js"></script>
+<script src="ajax/ajax.js"></script>
+
+<!-- Initialize Swiper -->
+</html>

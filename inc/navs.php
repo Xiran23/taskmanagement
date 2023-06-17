@@ -1,29 +1,14 @@
-<?php
-session_start();
-// if(isset($_SESSION['uname'])){
-
-
-
-// }else{
-//   echo "<script> location.href='login.php'; </script>";
-
-// }
-
-?>
-
-
-
 <?php 
 // session_start();//alerady in header.php
 if(isset($_SESSION['username'])){
   $use = $_SESSION['username'];
-  
+
   // echo "<script> alert('value is set: $use') </script>";
   
 }
 else{
   echo "<script> location.href='login.php'; </script>";
-  
+
 }
 if(isset($_POST['logout'])){
   session_unset();
@@ -32,11 +17,6 @@ if(isset($_POST['logout'])){
 }
 
 ?>
-<header>
-    <label>USER: <?php echo  $_SESSION['username'] ?></label>
-    <label>Email:admin@gmail.com</label>
-
-</header>
 
 <nav>
         <ul>
@@ -67,7 +47,7 @@ if(isset($_POST['logout'])){
 
            <!-- view TASKS -->
            <li>
-            <a href="viewtask.php" onclick="viewTask()">
+            <a href="#" onclick="viewTask()">
               <img
                 class="dashlogo"
            
@@ -100,7 +80,34 @@ if(isset($_POST['logout'])){
               <span class="nav-item">list-Users</span>
             </a>
           </li>
-           <li>
+
+          <!-- <li>
+            <a href="#" onclick="Opensection('main-update')">
+              <img
+                class="dashlogo"
+                onclick="Opensection('main-update')"
+                src="images/icon/update.png"
+                alt=""
+              />
+              <span class="nav-item">UPDATE TASKS</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" onclick="Opensection('main-note')">
+              <img class="dashlogo" src="images/icon/note.png" alt="" />
+              <span class="nav-item">NOTE</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" onclick="Opensection('main-leave')">
+              <img class="dashlogo" src="images/icon/leave.png" alt="" />
+              <span class="nav-item">APPLY LEAVE</span>
+            </a>
+          </li> -->
+
+          <li>
             <a href="#" class="logout">
               <form method="POST">
                 <input type="submit" value="logout" name="logout"><label></label>
