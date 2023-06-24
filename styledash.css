@@ -31,6 +31,7 @@ header {
     z-index: 999;
 }
 
+
 /* For navbar */
 
 nav {
@@ -257,6 +258,17 @@ input[type="submit"]:hover {
     color: grey;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
   }
+  .low-priority {
+    background-color: #b3ffb3;
+  }
+
+  .medium-priority {
+    background-color: #ffffb3;
+  }
+
+  .high-priority {
+    background-color: #ff9999;
+  }
   
   .t-card:hover {
     transition: transform 0.5s ease;
@@ -306,3 +318,92 @@ input[type="submit"]:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
     background-color: grey;
   }
+
+  /* Table  */
+ 
+  .usertable table {
+    border-collapse: collapse;
+    width: 70%;
+    font-family: Arial, sans-serif;
+}
+
+.usertable th {
+    background-color: #de6c6c;
+    color: #000;
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+}
+
+.usertable tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.usertable tr:nth-child(even) {
+    background-color: #ffffff;
+}
+.usertable .curve tr {
+  border: none;
+  /* padding: 10px; */
+  border-radius: 5px;
+}
+
+.usertable td,
+.usertable th {
+    border: none;
+    padding: 10px;
+    /* border-radius: 5px; */
+}
+
+.usertable button {
+    margin-top: 5px;
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.usertable button:hover {
+    background-color: #45a049;
+}
+
+.usertable a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.usertable a:hover {
+    text-decoration: underline;
+}
+
+.usertable .btn-primary {
+    background-color: #3498db;
+}
+
+.usertable .btn-danger {
+    background-color: #e74c3c;
+}
+
+.usertable .btn-success {
+    background-color: #2ecc71;
+}
+
+.usertable .text-light {
+    color: #fff;
+}
+
+.usertable .ml-5 {
+    margin-left: 5px;
+}
+
+.usertable .button-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.usertable .button-container button {
+    margin-right: 5px;
+}

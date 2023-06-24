@@ -90,7 +90,7 @@ if(isset($_POST['logout'])){
             </a>
           </li>
           <li>
-            <a href="adduser.php" onclick="">
+            <a href="listuser.php" onclick="">
               <img
                 class="dashlogo"
            
