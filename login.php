@@ -10,8 +10,6 @@ if(!isset($_SESSION['username'])){
   {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $_SESSION['username']=$username;
-    $_SESSION['password']=$pass; 
     
     
     $query = "SELECT * FROM users WHERE username = '$username'";  
@@ -29,6 +27,8 @@ if(!isset($_SESSION['username'])){
         $role = $user['role'];
         if ($role == 1) {
           
+          $_SESSION['username']=$username;
+          $_SESSION['password']=$password; 
           
           header("Location:dashboard.php");
           
